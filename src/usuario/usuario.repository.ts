@@ -1,9 +1,10 @@
 import { Injectable } from "@nestjs/common";
+import { CriaUsuarioDTO } from "./dto/criaUsuario.dto";
 
 @Injectable()
 export class UsuarioRepository{
 
-    private usuarios = [String];
+    private usuarios: CriaUsuarioDTO[] = [];
 
     async salvar(usuario){
         this.usuarios.push(usuario);
@@ -12,5 +13,13 @@ export class UsuarioRepository{
 
     async listar(){
         return this.usuarios;
+    }
+
+    async existeComEmail(email: string){
+        const possivelUsuario = this.usuarios.find(
+            usuario => usuario.email === email,
+        );
+
+        return possivelUsuario !== undefined;
     }
 }
