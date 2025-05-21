@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsDecimal, IsInt, IsNotEmpty, IsNumber, IsPositive, IsUrl, ValidateNested } from "class-validator";
+import { IsArray, IsDecimal, IsInt, IsNotEmpty, IsNumber, IsPositive, IsUrl, IsUUID, ValidateNested } from "class-validator";
 
 export class CaracteristicaProdutoDTO{
 
@@ -20,6 +20,9 @@ export class ImagemProdutoDTO{
 }
 
 export class CriaProdutoDTO{
+
+    @IsUUID(undefined, { message: 'ID de usuário inválido' })
+    usuarioId: string;
 
     @IsNotEmpty()
     nome: String;
