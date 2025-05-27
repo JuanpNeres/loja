@@ -4,7 +4,7 @@ import { CriaUsuarioDTO } from "./dto/criaUsuario.dto";
 import { UsuarioEntity } from "./usuario.entity";
 import { v4 as uuid } from 'uuid';
 import { ListaUsuarioDTO } from "./dto/listaUsuario.dto";
-import { AtualizaUsuarioDTO } from "./dto/atualizaUsuario.dto copy";
+import { AtualizaUsuarioDTO } from "./dto/atualizaUsuario.dto";
 import { identity } from "rxjs";
 
 
@@ -27,7 +27,7 @@ export class UsuarioController{
 
         return { 
             usuario: new ListaUsuarioDTO(usuarioEntity.id, usuarioEntity.nome),
-            message: 'Uusário criado com sucesso'
+            message: 'Usuário criado com sucesso'
          };
     }
 
